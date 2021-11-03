@@ -30,9 +30,9 @@ while true do
     diff_hash.each do |df|
       puts "Detected change in #{df[0]}, refreshing"
       %x{osascript<<ENDGAME
-        tell application "Safari"
-          set docUrl to URL of document 1
-          set URL of document 1 to docUrl
+        tell application "Safari" to activate
+        tell application "System Events"
+          keystroke "r" using command down
         end tell
       }
     end
